@@ -13,12 +13,6 @@
 #define HAS_CM
 #define HAS_MIUI
 
-#define IS_PHONE
-
-#define EXT4_RDY
-#define USES_BITRATE
-#define HAS_EPENIS_MODE
-
 #endif // DEVICE_LGP990
 
 #ifdef DEVICE_LGP990
@@ -43,28 +37,6 @@ cpio="$BB cpio"
 find="$BB find"
 gzip="$BB gzip"
 warning=0
-#ifdef DEVICE_LGP990
-ril=0
-#endif
-#ifdef EXT4_RDY
-ext4=0
-#endif
-#ifdef USES_BITRATE
-bit=0
-#endif
-dvalue=0
-#ifdef IS_PHONE
-ring=0
-#endif
-#ifdef EXT4_RDY
-extrdy=1
-#endif
-#ifdef DEVICE_LGP990
-int2ext=0
-#endif
-#ifdef HAS_EPENIS_MODE
-epenis=0
-#endif
 
 updatename=`echo $UPDATE_FILE | $awk '{ sub(/^.*\//,"",$0); sub(/.zip$/,"",$0); print }'`
 kernelver=`echo $updatename | $awk 'BEGIN {RS="-"; ORS="-"}; NR<=2 {print; ORS=""}'`
@@ -75,7 +47,7 @@ log "Kernel script started. Installing $UPDATE_FILE in $basedir"
 log ""
 ui_print ""
 ui_print "Installing $kernelver"
-ui_print "Developed by Benee and kiljacken"
+ui_print "Credits to Benee and kiljacken"
 ui_print ""
 ui_print "Checking ROM..."
 
