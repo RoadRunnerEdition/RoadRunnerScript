@@ -1,0 +1,14 @@
+ui_print("Extracting files...");
+set_progress(1.000000);
+delete_recursive("/tmp/vorkKernel");
+delete_recursive("/tmp/REKernel");
+package_extract_dir("tmp", "/tmp");
+run_program("/sbin/busybox", "mount", "/system");
+set_perm(0, 0, 0700, "/tmp/REKernel/mkbootimg");
+set_perm(0, 0, 0700, "/tmp/REKernel/unpackbootimg");
+set_perm(0, 0, 0700, "/tmp/REKernel/installkernel.sh");
+run_program("/tmp/REKernel/installkernel.sh");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+set_perm(0, 0, 0750, "/system/etc/init.d/02zramenabled");
+set_perm(0, 0, 0750, "/system/etc/init.d/99complete");
+unmount("/system");

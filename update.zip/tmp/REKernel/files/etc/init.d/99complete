@@ -1,0 +1,5 @@
+#!/system/bin/sh
+touch /bin/profile
+chmod 644 /system/bin/profile
+sync;
+setprop mcr.filesystem.ready 1;
